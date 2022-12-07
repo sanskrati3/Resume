@@ -1,0 +1,9 @@
+
+input[type="text"] {
+      width: 250px;
+  }
+  input[type="submit"], input[type="reset"] {
+      width: 77px;
+      height: 27px;
+      position: relative;left: 180px;
+  }

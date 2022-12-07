@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Resume Builder</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <style media="screen">
+  #cv-template{
+   display: none;
+ }
+ .myimg{
+   border-radius: 50%;
+   width: 200px;
+ }
+ .background{
+   background-color:aqua;
+ }
+
+
+  </style>
+</head>
+
+<body>
+ <!-- <form class="" action="/generate" method="post"> -->
+
+  <div class="container" id="cv-form">
+    <h1 class="text-center my-2">Resume Generator</h1>
+    <div class="row">
+      <!-- first section -->
+      <div class="col-md-6">
+        <h3>Personal Information</h3>
+        <div class="form-group">
+          <label for="imgFeild">Profile Picture</label>
+          <input type="file" id="imgFeild" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="nameFeild">Your Name</label>
+          <input type="text" id="nameFeild" placeholder="Enter Here" class="form-control"  name="name">
+        </div>
+        <div class="form-group mt-2">
+          <label for="contactFeild">Your Contact</label>
+          <input type="text" id="contactFeild" placeholder="Enter Here" class="form-control"  name="contact">
+        </div>
+        <div class="form-group mt-2">
+          <label for="addressFeild">Your Address</label>
+          <textarea id="addressFeild" placeholder="Enter Here" class="form-control" rows="5"  name="address"> </textarea>
+        </div>
+        <p class="text-secondary mt-2">Inportant Links</p>
+        <div class="form-group mt-2">
+          <label for="fbFeild">Facebook Link</label>
+          <input type="text" id="fbFeild" placeholder="Enter Here" class="form-control"  name="fblink">
+        </div>
+        <div class="form-group mt-2">
+          <label for="instaFeild">Instagram Link</label>
+          <input type="text" id="instaFeild" placeholder="Enter Here" class="form-control"  name="instalink">
+        </div>
+        <div class="form-group mt-2">
+          <label for="linkedFeild">LinkedIn Link</label>
+          <input type="text" id="linkedFeild" placeholder="Enter Here" class="form-control"  name="ldlink">
+        </div>
+
+      </div>
+      <!-- second section -->
+      <div class="col-md-6">
+        <h3>Professional Information</h3>
+        <div class="form-group mt-2">
+          <label for="">Objective</label>
+          <textarea id="objectiveFeild" placeholder="Enter Here" class="form-control"  name="obj"> </textarea>
+        </div>
+        <div class="form-group mt-2" id="we">
+          <label for="">Your Experience</label>
+          <textarea placeholder="Enter Here" class="form-control weFeild"  name="ex"> </textarea>
+        </div>
+        <div class="container text-center mt-2" id="weAddButton">
+          <button class="btn btn-primary btn-sm" onclick="addNewWeFeild()">Add</button>
+        </div>
+        <div class="form-group mt-2" id="aq">
+          <label for="">Academic Qualification</label>
+          <textarea placeholder="Enter Here" class="form-control eqFeild"  name="ad"> </textarea>
+        </div>
+        <div class="container text-center mt-2" id="aqAddButton">
+          <button class="btn btn-primary btn-sm" onclick="addNewAqFeild()">Add</button>
+        </div>
+      </div>
+    </div>
+    <div class="container text-center mt-2">
+      <button onclick="generateCv()" class="btn btn-primary btn-lg">Generate CV</button>
+    </div>
+  </div>
+  <!-- </form> -->
+  <!-- cv template -->
+  <div class="container" id="cv-template">
+    <div class="row">
+      <!-- first column -->
+      <div class="col-md-4 text-center py-2 background ">
+        <img class="img-fluid myimg" id="imgT">
+        <img src="https://reagnt.in/wp-content/uploads/2016/02/person.png" class="img-fluid myimg" alt="">
+        <div class="container text-center">
+          <p id="nameT1">sanskrati gawande</p>
+          <p id="contactT">564646464</p>
+          <p id="addressT">g2 soumya reseident gomi omo bhpal</p>
+          <hr>
+          <p id="fbT"> <a href="#">https://facebook.com</a></p>
+          <p id="instaT"> <a href="#">https://facebook.com</a></p>
+          <p id="linkedT"> <a href="#">https://facebook.com</a></p>
+        </div>
+      </div>
+<!-- second column -->
+      <div class="col-md-8 text-center py-2">
+        <h1 id="nameT2">sg vlogs</h1>
+        <!-- objective-card -->
+        <div class="card">
+          <div class="card-header background">
+            <h3>objective</h3>
+          </div>
+          <div class="card-body">
+            <p id="objectiveT">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+        </div>
+        <!-- work experience -->
+        <div class="card">
+          <div class="card-header background">
+            <h3>Work Experience</h3>
+          </div>
+          <div class="card-body">
+            <ul id="weT">
+        <li> Add your work experience here </li>
+            </ul>
+          </div>
+        </div>
+        <!-- academic Qualification -->
+        <div class="card">
+          <div class="card-header background">
+            <h3>Academic Qualification</h3>
+          </div>
+          <div class="card-body">
+            <ul id="aqT">
+            <li> Add your Qualification here </li>
+            </ul>
+          </div>
+        </div>
+        <div class="container mt-3 text-center ">
+          <button onclick="printCv()" class="btn btn-primary btn-lg background">Print CV</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script >
+function addNewWeFeild(){
+  let newNode=document.createElement("textarea");
+  newNode.classList.add("form-control");
+  newNode.classList.add("weFeild");
+  newNode.classList.add("mt-2");
+  newNode.setAttribute("rows",2);
+  newNode.setAttribute("placeholder","Enter Here");
+
+  let weOb=document.getElementById("we");
+  let weAddButtonOb=document.getElementById("weFeild");
+
+  weOb.insertBefore(newNode,weAddButtonOb);
+}
+
+function addNewAqFeild(){
+  let newNode=document.createElement("textarea");
+  newNode.classList.add("form-control");
+  newNode.classList.add("eqFeild");
+  newNode.classList.add("mt-2");
+  newNode.setAttribute("rows",2);
+  newNode.setAttribute("placeholder","Enter Here");
+
+  let aqOb=document.getElementById("aq");
+  let aqAddButtonOb=document.getElementById("aqFeild");
+
+  aqOb.insertBefore(newNode,aqAddButtonOb);
+}
+
+// generating cv
+function generateCv(){
+
+
+var img=document.getElementById("imgT");
+var path=document.getElementById("imgFeild").files[0].name;
+console.log(path);
+img.setAttribute("src","C:/Users/hi/Downloads/"+path);
+
+document.getElementById("nameT1").innerHTML=document.getElementById("nameFeild").value;
+document.getElementById("nameT2").innerHTML=document.getElementById("nameFeild").value;
+document.getElementById("contactT").innerHTML=document.getElementById("contactFeild").value;
+document.getElementById("addressT").innerHTML=document.getElementById("addressFeild").value;
+document.getElementById("fbT").innerHTML=document.getElementById("fbFeild").value;
+document.getElementById("instaT").innerHTML=document.getElementById("instaFeild").value;
+document.getElementById("linkedT").innerHTML=document.getElementById("linkedFeild").value;
+// objective
+document.getElementById("objectiveT").innerHTML=document.getElementById("objectiveFeild").value;
+// work expeience
+let wes=document.getElementsByClassName("weFeild");
+let str="";
+for(let e of wes)
+{
+  str=str+"<li>" +e.value+"</li>";
+}
+document.getElementById("weT").innerHTML=str;
+
+// acedemic Qualification
+let aqs=document.getElementsByClassName("eqFeild");
+let str2="";
+for(let a of aqs)
+{
+  str2=str2+"<li>" +a.value+"</li>";
+}
+document.getElementById("aqT").innerHTML=str2;
+
+document.getElementById("cv-form").style.display="none";
+document.getElementById("cv-template").style.display="block";
+}
+
+//print cv
+function printCv(){
+  window.print();
+}
+
+</script>
+
+</html>

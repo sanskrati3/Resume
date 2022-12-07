@@ -1,0 +1,14 @@
+
+/* #cv-form{
+  display: none;
+} */
+ #cv-template{
+  display: none;
+}
+.myimg{
+  border-radius: 50%;
+  width: 200px;
+}
+.background{
+  background-color:aqua;
+}
